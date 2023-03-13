@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class Main
+{
+    public static void main(String[] args) {
+        Scanner obj=new Scanner (System.in);
+        
+        int n=obj.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++)
+            arr[i]=obj.nextInt();
+        int Sum = 0;
+        for (int i:arr) 
+        Sum +=i;
+                        
+    
+        int leftSum = 0;
+        for (int i = 0; i < n; i++) {
+            int rightSum = Sum - leftSum - arr[i];
+            if (leftSum == rightSum) 
+            {
+                System.out.print(i);
+                return;
+            }
+            leftSum += arr[i];
+        }
+     System.out.print(-1);
+    }
+}
